@@ -34,7 +34,7 @@ class Usuario {
         return $this->idioma;
     }
 
-    protected function getStatusResidencia() {
+    public function getStatusResidencia() {
         return $this->status_residencia;
     }
 
@@ -85,7 +85,7 @@ class Usuario {
         $this->idioma = $idioma;
     }
 
-    protected function setPaisOrigem($pais) {
+    public function setPaisOrigem($pais) {
         $this->pais_origem = $pais;
     }
 

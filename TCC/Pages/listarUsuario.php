@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Services/UsuarioService.php";
+require_once "../Services/usuarioService.php";
 
 $service = new UsuarioService();
 $usuarios = $service->listar();

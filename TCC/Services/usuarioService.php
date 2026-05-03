@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . "/../Config/Conexao.php";
-require_once __DIR__ . "/../Models/Usuario.php";
+require_once __DIR__ . "/../Config/conexao.php";
+require_once __DIR__ . "/../Models/usuario.php";
 
 class UsuarioService {
 

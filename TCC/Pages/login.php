@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "../Services/UsuarioService.php";
+require_once "../Services/usuarioService.php";
 // Verifica se veio via POST
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: index.php");

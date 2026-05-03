@@ -55,11 +55,14 @@ $service = new UsuarioService();
 if ($service->cadastrar($usuario)) {
 
     // LOGIN AUTOMÁTICO
-    $_SESSION['usuario'] = [
-        'nome' => $_POST['nome'],
-        'email' => $email,
-        'nivel_acesso' => null
-    ];
+    $usuarioCadastrado = $service->login($email, $senha);
+
+$_SESSION['usuario'] = [
+    'id' => $usuarioCadastrado['id_usuario'],
+    'nome' => $usuarioCadastrado['nome'],
+    'email' => $usuarioCadastrado['email'],
+    'nivel_acesso' => $usuarioCadastrado['nivel_acesso']
+];
 
     header("Location: mainPage.php");
     exit;

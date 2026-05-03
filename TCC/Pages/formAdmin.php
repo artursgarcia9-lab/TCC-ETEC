@@ -1,5 +1,5 @@
 <?php
-require_once "../config/auth_admin.php";
+require_once "../Config/authAdmin.php";
 ?>
 
 <!DOCTYPE html>
