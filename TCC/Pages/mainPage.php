@@ -8,6 +8,8 @@ $usuario = $_SESSION['usuario'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyMigra - Início</title>
+    <link rel="stylesheet" href="../css/style_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
         header { background: #4e73df; color: white; padding: 20px; }
@@ -20,25 +22,93 @@ $usuario = $_SESSION['usuario'];
     </style>
 </head>
 <body>
-<header class="top">
-    <div>
-        <h2>EasyMigra</h2>
-        <p>Bem-vindo(a), <?php echo htmlspecialchars($usuario['nome']); ?></p>
+<header class="app-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 15px;">
+    <!-- Ícone de Menu -->
+    <i class="fa-solid fa-bars"></i>
+
+    <!-- Container Centralizado (ou alinhado) -->
+  <header style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px 15px; background: white; position: relative; height: 60px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    
+    <div style="z-index: 2;">
+        <i class="fa-solid fa-bars" style="font-size: 20px; color: #555; cursor: pointer;"></i>
     </div>
-    <form action="logout.php" method="POST"><button type="submit">Sair</button></form>
+
+    <div style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; white-space: nowrap;">
+        <img src="../img/glob.jpg" alt="Glob" 
+             style="width: 35px; height: 35px; object-fit: cover;" 
+             class="w3-circle">
+        
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <strong style="font-size: 16px; color: #224abe; line-height: 1.1;">EasyMigra</strong>
+            <small style="font-size: 9px; color: #777; margin-top: 1px;">Apoio para sua vida no Brasil</small>
+        </div>
+    </div>
+
+    <div style="position: relative; cursor: pointer; z-index: 2;">
+        <i class="fa-solid fa-bell" style="font-size: 20px; color: #555;"></i>
+        <span style="position: absolute; top: -2px; right: -2px; background-color: red; width: 8px; height: 8px; border-radius: 50%; border: 2px solid white;"></span>
+    </div>
+
 </header>
+</header>
+
 <main>
-    <div class="grid">
-        <div class="card"><h3>Documentos</h3><p>Consultar orientações sobre CPF, RNM, trabalho, saúde e educação.</p><a href="documentos.php">Acessar</a></div>
-        <div class="card"><h3>Órgãos públicos</h3><p>Consultar unidades e contatos cadastrados.</p><a href="orgaos.php">Acessar</a></div>
-        <div class="card"><h3>Agenda de prazos</h3><p>Cadastrar e acompanhar datas importantes.</p><a href="agenda.php">Acessar</a></div>
-        <div class="card"><h3>Dicas da comunidade</h3><p>Compartilhar orientações úteis com outros usuários.</p><a href="dicas.php">Acessar</a></div>
-        <div class="card"><h3>Upload de arquivos</h3><p>Enviar arquivos de apoio, como comprovantes e documentos.</p><a href="uploadArquivo.php">Acessar</a></div>
-        <div class="card"><h3>Minha conta</h3><p>Excluir a própria conta, se necessário.</p><a class="danger" href="deletarConta.php">Excluir conta</a></div>
-        <?php if ($usuario['nivel_acesso'] !== null): ?>
-            <div class="card"><h3>Administração</h3><p>Gerenciar usuários administradores.</p><a href="formAdmin.php">Tornar usuário admin</a><a href="listarUsuario.php">Listar usuários</a></div>
-        <?php endif; ?>
+    <section class="welcome-banner" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+    <!-- Container para os textos ficarem na esquerda -->
+    <div class="welcome-text">
+        <h1 style="margin: 0;">Bem-vindo ao EasyMigra!</h1>
+        <p style="margin: 5px 0;">Informação, orientação e apoio para imigrantes no Brasil.</p>
+        <small>Olá, <?php echo $_SESSION['usuario']['nome']; ?></small>
     </div>
+
+    <!-- Imagem na extrema direita -->
+    <img src="../img/pess.jpg" alt="Pess" style="width: 100px; height: 100px; object-fit: cover;" class="w3-circle">
+</section>
+
+    <section class="menu-grid">
+        <a href="documentos.php" class="menu-card">
+            <i class="fa-solid fa-file-invoice icon-green"></i>
+            <span>Documentos</span>
+        </a>
+
+        <a href="orgaos.php" class="menu-card">
+            <i class="fa-solid fa-location-dot icon-purple"></i>
+            <span>Órgãos</span>
+        </a>
+
+        <a href="agenda.php" class="menu-card">
+            <i class="fa-solid fa-calendar-days icon-orange"></i>
+            <span>Agenda</span>
+        </a>
+
+        <a href="dicas.php" class="menu-card">
+            <i class="fa-solid fa-comments icon-green"></i>
+            <span>Dicas</span>
+        </a>
+
+         <a href="chat.php" class="menu-card">
+            <i class="fa-solid fa-comment icon-blue"></i>
+            <span>Chat de Apoio</span>
+        </a>
+
+        <a href="upload.php" class="menu-card">
+            <i class="fa-solid fa-language icon-blue"></i>
+            <span>Tradutor</span>
+        </a>
+    </section>
+
+    <section class="info-bar">
+        <i class="fa-solid fa-circle-info"></i>
+        <p>Encontre aqui tudo o que você precisa para regularizar sua vida e se integrar ao Brasil.</p>
+    </section>
 </main>
+
+<nav class="bottom-nav">
+    <a href="mainPage.php" class="nav-item active"><i class="fa-solid fa-house"></i>Início</a>
+    <a href="documentos.php" class="nav-item"><i class="fa-solid fa-file-lines"></i>Documentos</a>
+    <a href="agenda.php" class="nav-item"><i class="fa-solid fa-calendar"></i>Agenda</a>
+    <a href="dicas.php" class="nav-item"><i class="fa-solid  fa-star"></i>Dicas</a>
+    <a href="perfil.php" class="nav-item"><i class="fa-solid fa-user"></i>Perfil</a>
+</nav>
 </body>
 </html>

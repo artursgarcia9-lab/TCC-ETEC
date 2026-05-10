@@ -10,6 +10,7 @@ require_once "../Config/auth.php";
     <li><a href="orgaos.php">Consultar Órgãos</a></li>
     <li><a href="agenda.php">Agenda</a></li>
     <li><a href="dicas.php">Dicas</a></li>
+    <li><a href="chat.php">Chat de Apoio</a></li>
     <li><a href="uploadArquivo.php">Upload de Arquivos</a></li>
     <li><a href="logout.php">Sair</a></li>
 </ul>
